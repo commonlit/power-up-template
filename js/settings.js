@@ -9,11 +9,12 @@ var c = document.getElementById('c');
 var e = document.getElementById('e');
 
 t.render(function () {
+  console.log(r)
   return Promise.all([
-      t.get('board', 'shared', 'r'),
-      t.get('board', 'shared', 'i'),
-      t.get('board', 'shared', 'c'),
-      t.get('board', 'shared', 'e')
+      t.get('card', 'shared', 'r'),
+      t.get('card', 'shared', 'i'),
+      t.get('card', 'shared', 'c'),
+      t.get('card', 'shared', 'e')
     ])
     .spread(function (saved_r, saved_i) {
       r.value = saved_r;
