@@ -15,14 +15,10 @@ t.render(function () {
       t.get('board', 'shared', 'c'),
       t.get('board', 'shared', 'e')
     ])
-    // .spread(function (savedFruit, savedVegetable) {
-    //   if (savedFruit && /[a-z]+/.test(savedFruit)) {
-    //     r.value = savedFruit;
-    //   }
-    //   if (savedVegetable && /[a-z]+/.test(savedVegetable)) {
-    //     i.value = savedVegetable;
-    //   }
-    // })
+    .spread(function (saved_r, saved_i) {
+      r.value = saved_r;
+      i.value = saved_i;
+    })
     .then(function () {
       t.sizeTo('#content')
         .done();
