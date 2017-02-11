@@ -30,15 +30,15 @@ t.render(function () {
 });
 
 document.getElementById('save').addEventListener('click', function () {
-  return t.set('board', 'shared', 'i', i.value)
+  return t.set('card', 'shared', 'i', i.value)
     .then(function () {
-      return t.set('board', 'shared', 'r', r.value);
+      return t.set('card', 'shared', 'r', r.value);
     })
     .then(function () {
-      return t.set('board', 'shared', 'c', c.value);
+      return t.set('card', 'shared', 'c', c.value);
     })
     .then(function () {
-      return t.set('board', 'shared', 'e', e.value);
+      return t.set('card', 'shared', 'e', e.value);
     })
     .then(function () {
       t.closePopup();
