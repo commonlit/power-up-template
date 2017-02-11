@@ -1,5 +1,3 @@
-/* global TrelloPowerUp */
-
 var WHITE_ICON = './images/icon-white.svg';
 var GRAY_ICON = './images/icon-gray.svg';
 
@@ -20,24 +18,29 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return t.get('card', 'shared')
+  return t.get('card', 'shared', {
+      'r',
+      'i',
+      'c',
+      'e'
+    })
     .then(function (data) {
-      console.log(data.r, 'multiple');
+      console.log(r, 'multiple');
       return [{
         title: 'Reach', // for detail badges only
-        text: data.r
+        text: r
       }, {
         title: 'Impact', // for detail badges only
-        text: data.i
+        text: i
       }, {
         title: 'Confidence', // for detail badges only
-        text: data.r
+        text: r
       }, {
         title: 'Effort', // for detail badges only
-        text: data.r
+        text: r
       }, {
         title: 'Score', // for detail badges only
-        text: data.r
+        text: r
       }];
 
     })
@@ -198,4 +201,8 @@ TrelloPowerUp.initialize({
       height: 184
     });
   }
+});
+height: 184
+});
+}
 });
