@@ -18,14 +18,9 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return t.get('card', 'shared', {
-      'r',
-      'i',
-      'c',
-      'e'
-    })
+  return t.get('card', 'shared', ['r', 'i', 'c', 'e'])
     .then(function (data) {
-      console.log(r, 'multiple');
+      console.log(r, 'multiple2');
       return [{
         title: 'Reach', // for detail badges only
         text: r
