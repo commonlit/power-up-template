@@ -20,15 +20,13 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  console.log(t.card());
+  console.log(t.card('name'));
   return t.card('name')
     .get('name')
     .then(function (cardName) {
       return [{
         title: 'Reach', // for detail badges only
-        text: '1',
-        icon: icon, // for card front badges only
-        color: badgeColor
+        text: '1'
       }];
 
     })
