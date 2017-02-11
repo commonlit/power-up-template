@@ -9,7 +9,7 @@ var c = document.getElementById('c');
 var e = document.getElementById('e');
 
 t.render(function () {
-  console.log(r)
+  console.log(r);
   return Promise.all([
       t.get('card', 'shared', 'r'),
       t.get('card', 'shared', 'i'),

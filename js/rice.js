@@ -9,7 +9,6 @@ var c = document.getElementById('c');
 var e = document.getElementById('e');
 
 t.render(function () {
-  console.log(r.value, e.value)
   return Promise.all([
       t.get('card', 'shared', 'r'),
       t.get('card', 'shared', 'i'),
@@ -19,6 +18,7 @@ t.render(function () {
     .spread(function (saved_r, saved_i) {
       r.value = saved_r;
       i.value = saved_i;
+      console.log(r.value, e.value, saved_r, saved_i)
     })
     .then(function () {
       t.sizeTo('#content')
