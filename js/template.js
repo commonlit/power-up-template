@@ -20,25 +20,24 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return t.get('card', 'shared', 'r')
-    .get('card', 'shared', 'i')
-    .then(function (r, i) {
-      console.log(r, 'new');
+  return t.get('card', 'shared')
+    .then(function (data) {
+      console.log(data.r, 'multiple');
       return [{
         title: 'Reach', // for detail badges only
-        text: r
+        text: data.r
       }, {
         title: 'Impact', // for detail badges only
-        text: i
+        text: data.i
       }, {
         title: 'Confidence', // for detail badges only
-        text: r
+        text: data.r
       }, {
         title: 'Effort', // for detail badges only
-        text: r
+        text: data.r
       }, {
         title: 'Score', // for detail badges only
-        text: r
+        text: data.r
       }];
 
     })
