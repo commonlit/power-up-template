@@ -113,7 +113,7 @@ var boardButtonCallback = function (t) {
   });
 };
 
-var addRICE = function (t) {
+var estRICE = function (t) {
   var items = Object.keys(parkMap).map(function (parkCode) {
     var urlForCode = 'http://www.nps.gov/' + parkCode + '/';
     return {
@@ -205,7 +205,7 @@ TrelloPowerUp.initialize({
     return [{
       icon: GRAY_ICON,
       text: 'RICE Est.',
-      callback: addRI
+      callback: estRICE
     }];
   },
   'card-detail-badges': function (t, options) {
