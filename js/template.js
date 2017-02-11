@@ -35,6 +35,7 @@ var getBadges = function (t) {
       title: 'Effort'
     }
   ]).then(function (data) {
+    console.log(data);
     return [
       data,
       {
