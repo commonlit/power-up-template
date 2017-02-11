@@ -21,10 +21,23 @@ var parkMap = {
 
 var getBadges = function (t) {
   return t.get('card', 'shared', 'r')
-    .then(function (r) {
+    .get('card', 'shared', 'i')
+    .then(function (r, i) {
       console.log(r, 'new');
       return [{
         title: 'Reach', // for detail badges only
+        text: r
+      }, {
+        title: 'Impact', // for detail badges only
+        text: i
+      }, {
+        title: 'Confidence', // for detail badges only
+        text: r
+      }, {
+        title: 'Effort', // for detail badges only
+        text: r
+      }, {
+        title: 'Score', // for detail badges only
         text: r
       }];
 
@@ -77,23 +90,6 @@ var boardButtonCallback = function (t) {
 };
 
 var estRICE = function (t) {
-  var items = Object.keys(parkMap).map(function (parkCode) {
-    var urlForCode = 'http://www.nps.gov/' + parkCode + '/';
-    return {
-      text: parkMap[parkCode],
-      url: urlForCode,
-      callback: function (t) {
-        return t.attach({
-            url: urlForCode,
-            name: parkMap[parkCode]
-          })
-          .then(function () {
-            return t.closePopup();
-          })
-      }
-    };
-  });
-
   return t.popup({
     title: 'Estimate RICE',
     url: './rice.html'
