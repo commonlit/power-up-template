@@ -20,13 +20,13 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  console.log(t.get('card', 'shared', 'r'), 'test r');
   return t.card('name')
-    .get('name')
-    .then(function (cardName) {
+    .get('card', 'shared', 'r')
+    .then(function (r) {
+      console.log(r);
       return [{
         title: 'Reach', // for detail badges only
-        text: '1'
+        text: r
       }];
 
     })
