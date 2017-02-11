@@ -38,7 +38,7 @@ var getBadges = function (t) {
         text: r
       }];
 
-    })
+    });
 };
 
 var formatNPSUrl = function (t, url) {
@@ -101,7 +101,7 @@ TrelloPowerUp.initialize({
 
     // we will just claim urls for Yellowstone
     var claimed = options.entries.filter(function (attachment) {
-      return attachment.url.indexOf('http://www.nps.gov/yell/') == 0;
+      return attachment.url.indexOf('http://www.nps.gov/yell/') === 0;
     });
 
     // you can have more than one attachment section on a card
@@ -196,8 +196,4 @@ TrelloPowerUp.initialize({
       height: 184
     });
   }
-});
-height: 184
-});
-}
 });
