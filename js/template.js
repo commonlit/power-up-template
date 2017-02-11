@@ -20,10 +20,10 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return t.card('name')
+  return t.card()
     .get('card', 'shared', 'r')
     .then(function (r) {
-      console.log(r);
+      console.log(r, 'new');
       return [{
         title: 'Reach', // for detail badges only
         text: r
