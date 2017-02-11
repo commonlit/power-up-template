@@ -18,27 +18,31 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return t.get('card', 'shared', ['r', 'i', 'c', 'e'])
-    .then(function (r, i, c, e) {
-      console.log(r, 'multiple2');
-      return [{
-        title: 'Reach', // for detail badges only
-        text: r
-      }, {
-        title: 'Impact', // for detail badges only
-        text: i
-      }, {
-        title: 'Confidence', // for detail badges only
-        text: c
-      }, {
-        title: 'Effort', // for detail badges only
-        text: e
-      }, {
-        title: 'Score', // for detail badges only
-        text: (r + i + c) / e
-      }];
+  return Promise.all([
+    t.get('card', 'shared', 'r'),
+    t.get('card', 'shared', 'i'),
+    t.get('card', 'shared', 'c'),
+    t.get('card', 'shared', 'e')
+  ]).then(function (r, i, c, e) {
+    console.log(r, 'multiple2');
+    return [{
+      title: 'Reach', // for detail badges only
+      text: r
+    }, {
+      title: 'Impact', // for detail badges only
+      text: i
+    }, {
+      title: 'Confidence', // for detail badges only
+      text: c
+    }, {
+      title: 'Effort', // for detail badges only
+      text: e
+    }, {
+      title: 'Score', // for detail badges only
+      text: (r + i + c) / e
+    }];
 
-    });
+  });
 };
 
 var formatNPSUrl = function (t, url) {
