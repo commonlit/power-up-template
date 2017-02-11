@@ -20,8 +20,7 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return t.card()
-    .get('card', 'shared', 'r')
+  return t.get('card', 'shared', 'r')
     .then(function (r) {
       console.log(r, 'new');
       return [{
