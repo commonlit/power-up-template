@@ -133,15 +133,7 @@ var addRICE = function (t) {
 
   return t.popup({
     title: 'Estimate RICE',
-    items: items,
-    list: {
-
-    },
-    search: {
-      count: 5,
-      placeholder: 'Search National Parks',
-      empty: 'No parks found'
-    }
+    url: './rice.html'
   });
 };
 
@@ -213,7 +205,7 @@ TrelloPowerUp.initialize({
     return [{
       icon: GRAY_ICON,
       text: 'RICE Est.',
-      url: './rice.html'
+      callback: addRI
     }];
   },
   'card-detail-badges': function (t, options) {
