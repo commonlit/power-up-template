@@ -24,7 +24,7 @@ var getBadges = function (t) {
     t.get('card', 'shared', 'c'),
     t.get('card', 'shared', 'e')
   ]).then(function (data) {
-    console.log(r, 'multiple2');
+    // console.log(r, 'multiple2');
     return [{
       title: 'Reach', // for detail badges only
       text: data[0]
