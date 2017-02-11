@@ -210,7 +210,7 @@ TrelloPowerUp.initialize({
     }];
   },
   'card-badges': function (t, options) {
-    return setRICE(t);
+    return setRICE(options);
   },
   'card-buttons': function (t, options) {
     return [{
