@@ -19,7 +19,7 @@ var parkMap = {
 
 var getBadges = function (t) {
   return t.get('card', 'shared', ['r', 'i', 'c', 'e'])
-    .then(function (data) {
+    .then(function (r, i, c, e) {
       console.log(r, 'multiple2');
       return [{
         title: 'Reach', // for detail badges only
@@ -29,13 +29,13 @@ var getBadges = function (t) {
         text: i
       }, {
         title: 'Confidence', // for detail badges only
-        text: r
+        text: c
       }, {
         title: 'Effort', // for detail badges only
-        text: r
+        text: e
       }, {
         title: 'Score', // for detail badges only
-        text: r
+        text: (r + i + c) / e
       }];
 
     });
