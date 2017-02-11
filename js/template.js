@@ -20,6 +20,7 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
+  console.log(t);
   return t.card('name')
     .get('name')
     .then(function (cardName) {
@@ -131,7 +132,7 @@ var addRICE = function (t) {
   });
 
   return t.popup({
-    title: 'Popup Search Example',
+    title: 'Estimate RICE',
     items: items,
     list: {
 
@@ -212,7 +213,7 @@ TrelloPowerUp.initialize({
     return [{
       icon: GRAY_ICON,
       text: 'RICE Est.',
-      callback: addRICE
+      url: './rice.html'
     }];
   },
   'card-detail-badges': function (t, options) {
