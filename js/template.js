@@ -18,28 +18,30 @@ var parkMap = {
 };
 
 var getBadges = function (t) {
-  return Promise.all({
-    r: t.get('card', 'shared', 'r'),
-    i: t.get('card', 'shared', 'i'),
-    c: t.get('card', 'shared', 'c'),
-    e: t.get('card', 'shared', 'e')
-  }).then(function (data) {
-    return [{
-      title: 'Reach', // for detail badges only
-      text: data.r
-    }, {
-      title: 'Impact', // for detail badges only
-      text: data.i
-    }, {
-      title: 'Confidence', // for detail badges only
-      text: data.c
-    }, {
-      title: 'Effort', // for detail badges only
-      text: data.e
-    }, {
-      title: 'Score', // for detail badges only
-      text: (data.r + data.i + data.c) / data.e
-    }];
+  return Promise.all([{
+      text: t.get('card', 'shared', 'r'),
+      title: 'Reach'
+    },
+    {
+      text: t.get('card', 'shared', 'i'),
+      title: 'Impact'
+    },
+    {
+      text: t.get('card', 'shared', 'c'),
+      title: 'Confidence'
+    },
+    {
+      text: t.get('card', 'shared', 'e'),
+      title: 'Effort'
+    }
+  ]).then(function (data) {
+    return [
+      data,
+      {
+        title: 'Score', // for detail badges only
+        text: (data.r + data.i + data.c) / data.e
+      }
+    ];
 
   });
 };
