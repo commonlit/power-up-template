@@ -18,8 +18,8 @@ requirejs(['./lodash'], function (_) {
     // compose request URL
     var url = 'https://www.pivotaltracker.com/services/v5';
     url += '/projects/' + projectId;
-    url += "/iterations/13/analytics/cycle_time_details";
-    // url += '/stories?with_state=accepted';
+    // url += "/iterations/13/analytics/cycle_time_details";
+    url += '/stories?with_state=accepted&fields=name,started_time';
     // url += '/stories?filter=state:delivered,finished,rejected,started';
     // url += ',unstarted,unscheduled';
     // url += '&limit=20';
@@ -41,18 +41,18 @@ requirejs(['./lodash'], function (_) {
         return response.json()
           .then(function (json) {
             _.each(json, function (item) {
-              var itemUrl = 'https://www.pivotaltracker.com/services/v5/projects/' + projectId + '/stories/' + item.story_id;
-              var itemRequest = new Request(itemUrl, myInit);
-              fetch(itemRequest).then(function (response) {
-                return response.json()
-                  .then(function (item_data) {
-                    if (item_data.story_type === 'feature') {
-                      console.log(item.started_time)
-                    } else {
-                      console.log('no');
-                    }
-                  });
-              });
+              // var itemUrl = 'https://www.pivotaltracker.com/services/v5/projects/' + projectId + '/stories/' + item.story_id;
+              // var itemRequest = new Request(itemUrl, myInit);
+              // fetch(itemRequest).then(function (response) {
+              //   return response.json()
+              //     .then(function (item_data) {
+              //       if (item_data.story_type === 'feature') {
+              //         console.log(item.started_time)
+              //       } else {
+              //         console.log('no');
+              //       }
+              //     });
+              // });
             });
           });
       });
