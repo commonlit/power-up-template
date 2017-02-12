@@ -2,7 +2,6 @@
 
 var t = TrelloPowerUp.iframe();
 
-
 function executeTrackerApiFetch() {
   // get parameters
   var token = 'd6a4af6ef3992f73a2b52dcf3e785b02',
@@ -14,14 +13,39 @@ function executeTrackerApiFetch() {
   url += '/stories?filter=state:delivered,finished,rejected,started';
   url += ',unstarted,unscheduled';
   url += '&limit=20';
+  var myHeaders = new Headers({
+    'X-TrackerToken': token
+  });
 
+  var myInit = {
+    method: 'GET',
+    headers: myHeaders,
+    mode: 'cors',
+    cache: 'default'
+  };
+
+  var myRequest = new Request(url, myInit);
+
+  fetch(myRequest)
+    .then(function (response) {
+      return response.blob();
+    })
+    .then(function (myBlob) {
+      var objectURL = URL.createObjectURL(myBlob);
+      myImage.src = objectURL;
+    });
   // do API request to get story names
-  $.ajax({
-    url: url,
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader('X-TrackerToken', token);
-    }
-  }).done(displayTrackerApiResponse);
+  // $.ajax({
+  //   url: url,
+  //   beforeSend: function (xhr) {
+  //     xhr.setRequestHeader('X-TrackerToken', token);
+  //   }
+  // }).done(displayTrackerApiResponse);
+  if (self.fetch) {
+    // run my fetch request here
+  } else {
+    console.log('no fetch');
+  }
 }
 
 function displayTrackerApiResponse(stories) {
