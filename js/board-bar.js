@@ -43,8 +43,12 @@ requirejs(['./lodash'], function (_) {
             _.each(json, function (item) {
               var itemUrl = 'https://www.pivotaltracker.com/services/v5/projects/' + projectId + '/stories/' + item.story_id;
               var itemRequest = new Request(itemUrl, myInit);
-              fetch(itemRequest).then(function (item_data) {
-                console.log(item_data);
+              fetch(itemRequest).then(function (response) {
+                return response.json()
+                  .then(function (item_data) {
+                    console.log(item_data);
+                  })
+
               })
             });
           });
