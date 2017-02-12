@@ -46,10 +46,13 @@ requirejs(['./lodash'], function (_) {
               fetch(itemRequest).then(function (response) {
                 return response.json()
                   .then(function (item_data) {
-                    console.log(item_data);
-                  })
-
-              })
+                    if (item_data.story_type === 'feature') {
+                      console.log(item.started_time)
+                    } else {
+                      console.log('no');
+                    }
+                  });
+              });
             });
           });
       });
