@@ -1,5 +1,5 @@
 /* global TrelloPowerUp */
-var _ = require('lodash');
+var _ = require('./lodash');
 var t = TrelloPowerUp.iframe();
 
 function executeTrackerApiFetch() {
