@@ -1,5 +1,13 @@
 /* global TrelloPowerUp */
-var _ = require('./lodash');
+// requirejs.config({
+//     baseUrl: 'lib',
+//     paths: {
+//         app: '../app'
+//     }
+// });
+requirejs(['lodash'], function (_) {
+  console.log(_) // OK
+});
 var t = TrelloPowerUp.iframe();
 
 function executeTrackerApiFetch() {
