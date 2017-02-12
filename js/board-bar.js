@@ -31,8 +31,7 @@ function executeTrackerApiFetch() {
       return response.blob();
     })
     .then(function (myBlob) {
-      var objectURL = URL.createObjectURL(myBlob);
-      myImage.src = objectURL;
+      console.log(myBlob);
     });
   // do API request to get story names
   // $.ajax({
