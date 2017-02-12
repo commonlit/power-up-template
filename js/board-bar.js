@@ -10,10 +10,10 @@ function executeTrackerApiFetch() {
   // compose request URL
   var url = 'https://www.pivotaltracker.com/services/v5';
   url += '/projects/' + projectId;
-  url += '/iterations/15/analytics'
+  url += '/stories?with_state=accepted'
   // url += '/stories?filter=state:delivered,finished,rejected,started';
   // url += ',unstarted,unscheduled';
-  url += '&limit=20';
+  // url += '&limit=20';
   var myHeaders = new Headers({
     'X-TrackerToken': token
   });
@@ -31,7 +31,9 @@ function executeTrackerApiFetch() {
     .then(function (response) {
       return response.json()
         .then(function (json) {
-          console.log(json);
+          _.each(json, function (item) {
+            console.log(item);
+          })
         });
     })
 

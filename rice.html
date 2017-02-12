@@ -2,11 +2,13 @@
   <head>
     <link rel="stylesheet" href="https://trello.com/power-ups/power-up.css">
     <script src="https://trello.com/power-ups/power-up.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js">
+
+    </script>
   </head>
   <body>
     <div id="content">
       <p>Reach</p>
-      </select>
       <fieldset>
         <input type="checkbox" name="Students" value="students">
         <input type="checkbox" name="Teachers" value="teachers">
@@ -15,13 +17,15 @@
       </fieldset>
       <p>Impact</p>
       <select id="i">
-        <option value="2">50</option>
+        <option value="1"> Low </option>
+        <option value="2"> Medium </option>
+        <option value="3"> High </option>
       </select>
       <p>Confidence</p>
       <select id="c">
-        <option value="3">high</option>
-        <option value="3">medium</option>
-        <option value="3">low</option>
+        <option value="1">Low</option>
+        <option value="2">Medium</option>
+        <option value="3">High</option>
       </select>
       <p>Effort</p>
       <input  id="e" type="number"/>
