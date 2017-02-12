@@ -23,7 +23,7 @@ t.render(function () {
     .then(function () {
       t.sizeTo('#content')
         .done();
-    })
+    });
 });
 
 document.getElementById('save').addEventListener('click', function () {
@@ -39,5 +39,5 @@ document.getElementById('save').addEventListener('click', function () {
     })
     .then(function () {
       t.closePopup();
-    })
-})
+    });
+});

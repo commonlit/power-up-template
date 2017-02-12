@@ -15,10 +15,12 @@ t.render(function () {
       t.get('card', 'shared', 'c'),
       t.get('card', 'shared', 'e')
     ])
-    .spread(function (saved_r, saved_i) {
+    .spread(function (saved_r, saved_i, saved_c, saved_e) {
       r.value = saved_r;
       i.value = saved_i;
-      console.log(r.value, e.value, saved_r, saved_i)
+      c.value = saved_c;
+      e.value = saved_e;
+      console.log(r.value, i.value, saved_r, saved_i, saved_c, saved_e)
     })
     .then(function () {
       t.sizeTo('#content')
