@@ -28,11 +28,12 @@ function executeTrackerApiFetch() {
 
   fetch(myRequest)
     .then(function (response) {
-      return response.blob();
+      return response.json()
+        .then(function (json) {
+          console.log(json);
+        });
     })
-    .then(function (myBlob) {
-      console.log(myBlob);
-    });
+
   // do API request to get story names
   // $.ajax({
   //   url: url,
